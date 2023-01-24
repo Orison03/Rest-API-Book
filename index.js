@@ -11,9 +11,9 @@ const {
 
 server.use(bodyParser.json());
 
-// server.get("/book", listBookController);
+server.get("/book/:id?", listBookController);
 server.post("/book", createBookController);
-// server.put("/book", updateBookController);
+server.put("/book", updateBookController);
 // server.delete("/book", deleteBookController);
 
 // connect to database
