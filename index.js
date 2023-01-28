@@ -14,7 +14,7 @@ server.use(bodyParser.json());
 server.get("/book/:id?", listBookController);
 server.post("/book", createBookController);
 server.put("/book", updateBookController);
-// server.delete("/book", deleteBookController);
+server.delete("/book", deleteBookController);
 
 // connect to database
 mongoose

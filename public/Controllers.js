@@ -56,16 +56,21 @@ const updateBookController = (req, res) => {
   //   });
 
   //   res.json({ message: "update successful", data: updatedBook });
-  // };
-  // const deleteBookController = (req, res) => {
-  //   const { title } = req.body;
-  //   const deletedBook = BookModel.delete({ title });
-  //   res.json({ message: "delete successful", data: deletedBook });
+  };
+  const deleteBookController = (req, res) => {
+    const { id } = req.body;
+    BookModel.findByIdAndRemove(id).then((deletedBook) => {
+      if (deletedBook) {
+        res.json({ message: "delete successful", data: deletedBook });
+        return;
+      }
+      res.json({ message: "book not found" });
+    });
 };
 
 module.exports = {
   listBookController,
   updateBookController,
   createBookController,
-  //   deleteBookController,
-};
+    deleteBookController,
+}
